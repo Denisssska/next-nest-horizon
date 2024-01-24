@@ -1,8 +1,14 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Scada } from 'next/font/google';
 import './globals.scss';
 
-const inter = Inter({ subsets: ['latin'] });
+const scada = Scada({
+  subsets: ['latin', 'latin'],
+  weight: ['400', '700'],
+  display: 'swap',
+  variable: '--font-scada',
+  style: ['normal', 'italic'],
+});
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -12,7 +18,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang='en'>
-      <body className={inter.className}> {children}</body>
+      <body className={scada.className}> {children}</body>
     </html>
   );
 }

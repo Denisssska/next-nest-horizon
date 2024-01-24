@@ -1,9 +1,10 @@
 import Link from 'next/link';
 import { FC } from 'react';
 import Icon from '../ui/Icon';
+import { IMenuInterface } from './menu.interface';
 
 interface IMenuItem {
-  item: any;
+  item: IMenuInterface;
 }
 const MenuItem: FC<IMenuItem> = ({ item }) => {
   return (
