@@ -1,3 +1,4 @@
+import { COLORS } from '@/constants/colors.constants';
 import { LucideProps } from 'lucide-react';
 import dynamicIconImports from 'lucide-react/dynamicIconImports';
 import dynamic from 'next/dynamic';
@@ -9,7 +10,7 @@ interface IconProps extends LucideProps {
 }
 const Icon: FC<IconProps> = ({ name, ...props }) => {
   const LucideIcon = dynamic(dynamicIconImports[name]);
-  return <LucideIcon {...props} />;
+  return <LucideIcon color={COLORS.primary} {...props} />;
 };
 
 export default Icon;

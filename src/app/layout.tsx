@@ -17,8 +17,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang='en'>
-      <body className={scada.className}> {children}</body>
+    <html className='dark' lang='en'>
+      <body suppressHydrationWarning className={scada.className}>
+        {children}
+      </body>
     </html>
   );
 }

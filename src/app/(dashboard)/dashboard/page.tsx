@@ -1,5 +1,6 @@
-import React from 'react';
+import Heading from '@/components/dashboard-layout/ui/Heading';
 import type { Metadata } from 'next';
+import TasksView from './TasksView';
 // import { NO_INDEX_PAGE } from '@constants/seo.constants';
 
 export const metadata: Metadata = {
@@ -7,7 +8,12 @@ export const metadata: Metadata = {
   // ...NO_INDEX_PAGE,
 };
 const DashboardPage = () => {
-  return <div>DashboardPage</div>;
+  return (
+    <div className=''>
+      <Heading title='Tasks' />
+      <TasksView />
+    </div>
+  );
 };
 
 export default DashboardPage;

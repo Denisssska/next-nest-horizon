@@ -1,0 +1,30 @@
+.table {
+  border-collapse: collapse;
+  @apply w-full border-collapse;
+  thead tr th,
+  tbody tr td {
+    @apply border border-border py-2 px-5 text-left whitespace-nowrap;
+    &:last-child,
+    &:first-child {
+      @apply border-l-0 border-r-0;
+    }
+  }
+
+  thead tr th {
+    @apply font-normal opacity-50;
+  }
+  tbody tr td {
+    > .grip {
+      @apply opacity-0 transition-opacity text-secondary;
+    }
+    &:hover > .grip {
+      @apply opacity-100;
+    }
+  }
+  .colHeading {
+    @apply font-semibold text-xl py-3;
+  }
+}
+.drag {
+  border: none;
+}

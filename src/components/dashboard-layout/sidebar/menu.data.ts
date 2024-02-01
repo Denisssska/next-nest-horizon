@@ -1,4 +1,4 @@
-import { DASHBOARD_PAGES } from '#/config/pages-url.config';
+import { DASHBOARD_PAGES } from '@/config/pages-url.config';
 import { IMenuInterface } from './menu.interface';
 
 export const MENU: IMenuInterface[] = [
