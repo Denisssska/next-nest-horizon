@@ -6,34 +6,20 @@ import { useState } from 'react';
 
 const DragAndDrop = () => {
   const [data, setData] = useState<Array<IcardsData>>(cardsData);
-  // useEffect(() => {
-  //   // delay(5000).then(() => setData(cardsData));
-  //   setData(cardsData);
-  // }, []);
   const onDragEnd = (result: DropResult) => {
     const { source, destination } = result;
     if (!destination) return;
-    if (source.droppableId !== destination.droppableId) {
-      const newData = [...JSON.parse(JSON.stringify(data))]; //shallow copy concept
-      const oldDroppableIndex = newData.findIndex(x => x.id == source.droppableId.split('droppable')[1]);
-      const newDroppableIndex = newData.findIndex(x => x.id == destination.droppableId.split('droppable')[1]);
-      const [item] = newData[oldDroppableIndex].components.splice(source.index, 1);
-      newData[newDroppableIndex].components.splice(destination.index, 0, item);
-      setData([...newData]);
-    } else {
-      const newData = [...JSON.parse(JSON.stringify(data))]; //shallow copy concept
-      const droppableIndex = newData.findIndex(x => x.id == source.droppableId.split('droppable')[1]);
-      const [item] = newData[droppableIndex].components.splice(source.index, 1);
-      newData[droppableIndex].components.splice(destination.index, 0, item);
-      setData([...newData]);
-    }
+
+    const newData = [...data];
+    const oldDroppableIndex = newData.findIndex(x => x.id === +source.droppableId.split('droppable')[1]);
+    const newDroppableIndex = newData.findIndex(x => x.id === +destination.droppableId.split('droppable')[1]);
+    const [item] = newData[oldDroppableIndex].components.splice(source.index, 1);
+    console.log(destination);
+
+    newData[newDroppableIndex].components.splice(destination.index, 0, item);
+    setData(newData);
   };
-  // if (!data.length)
-  //   return (
-  //     <div className='flex flex-col items-center justify-center h-screen '>
-  //       <h1 className='animate-spin-slow'>Loading</h1>
-  //     </div>
-  //   );
+
   return (
     <DragDropContext onDragEnd={onDragEnd}>
       <div>
